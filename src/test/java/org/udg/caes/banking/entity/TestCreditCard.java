@@ -10,10 +10,20 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class TestCreditCard {
     @Test
-    void testCredit() throws ClientNotFound {
+    void testCreditCard() throws ClientNotFound {
+        String id = "test";
+        CreditCard cc = new CreditCard(id);
+        cc.setActive(true);
+        cc.getMaxCredit();
 
-        CreditCard cc = new CreditCard("test");
         cc.credit(100);
         assertEquals(100, cc.getCredit());
+
+        assertEquals(id, cc.getId());
+
+        cc.reset();
+        assertEquals(0, cc.getCredit());
+
     }
+
 }
